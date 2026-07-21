@@ -307,9 +307,9 @@ function closeCart() {
   document.querySelector("[data-cart-overlay]")?.classList.remove("is-open");
 }
 
-/* Payment is NOT connected. This hands the order off to email
-   instead of pretending a purchase succeeded. Replace this with
-   a real Stripe Checkout redirect once that's set up. */
+/* Fallback message: shown if Stripe isn't connected yet, or if the
+   checkout request fails for any reason. Never blocks the customer
+   with a dead end — always gives them a way to still place the order. */
 function showCheckoutMessage() {
   const footerEl = document.querySelector("[data-cart-footer]");
   if (!footerEl) return;
@@ -319,6 +319,42 @@ function showCheckoutMessage() {
       <a href="mailto:divinebloom313@gmail.com">divinebloom313@gmail.com</a> with the items in your cart and we'll follow up to complete your purchase directly.
     </div>
     <button class="btn btn-secondary cart-checkout-btn" type="button" data-cart-close>Continue Browsing</button>`;
+}
+
+/* Real checkout: builds the cart into Stripe line items and asks our
+   Worker to create a live Checkout Session. Falls back to the email
+   message above if Stripe isn't set up yet or something goes wrong. */
+async function startCheckout() {
+  const cart = getCart();
+  if (!cart.length) return;
+
+  const footerEl = document.querySelector("[data-cart-footer]");
+  if (footerEl) {
+    footerEl.innerHTML = `<div class="cart-checkout-message">Taking you to secure checkout…</div>`;
+  }
+
+  const items = cart
+    .map((line) => {
+      const p = cartItemDetails(line.sku);
+      return p ? { title: p.title, price: p.price, qty: line.qty } : null;
+    })
+    .filter(Boolean);
+
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items, origin: window.location.origin }),
+    });
+    const data = await res.json();
+    if (res.ok && data.url) {
+      window.location.href = data.url;
+      return;
+    }
+    showCheckoutMessage();
+  } catch (err) {
+    showCheckoutMessage();
+  }
 }
 
 function initCart() {
@@ -334,7 +370,7 @@ function initCart() {
     if (dec) updateQty(dec.dataset.cartDecrease, -1);
     const rem = e.target.closest("[data-cart-remove]");
     if (rem) removeFromCart(rem.dataset.cartRemove);
-    if (e.target.closest("[data-cart-checkout]")) showCheckoutMessage();
+    if (e.target.closest("[data-cart-checkout]")) startCheckout();
   });
   loadProducts().then(() => renderCart());
 }

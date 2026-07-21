@@ -1,0 +1,64 @@
+{
+  "teas": [
+    {
+      "id": "tea-signature-blend",
+      "handle": "divine-bloom-signature-tea",
+      "title": "Divine Bloom™ Signature Tea",
+      "category": "teas",
+      "blendType": "Signature Blend",
+      "ingredients": "Lemon balm, peppermint, rose petals, jasmine flowers",
+      "description": "Our signature botanical blend created to inspire moments of peace, balance, and intentional self-care. Delicately floral with refreshing mint and soothing botanicals, crafted to help you slow down, reconnect with yourself, and make every cup a mindful ritual.",
+      "icon": "leaf-teacup",
+      "image": "signature-tea.jpg",
+      "featured": true,
+      "price": 2000,
+      "currency": "USD",
+      "sku": "DB-TEA-001",
+      "inStock": true,
+      "variants": [
+        { "size": "Loose Leaf Pouch, 2oz", "price": 2000, "sku": "DB-TEA-001-2OZ" },
+        { "size": "15 Sachets", "price": 1800, "sku": "DB-TEA-001-15CT" }
+      ]
+    },
+    {
+      "id": "tea-womens-wellness",
+      "handle": "womens-wellness-tea",
+      "title": "Women's Wellness Tea",
+      "category": "teas",
+      "blendType": "Wellness Blend",
+      "ingredients": "Raspberry leaf, nettle leaf, calendula, peppermint, rose petals",
+      "description": "A thoughtfully crafted loose-leaf herbal blend designed to become part of your daily wellness ritual. This refreshing blend combines botanical ingredients with a smooth, floral finish to encourage moments of self-care and intentional living.",
+      "icon": "leaf-teacup",
+      "image": "womens-wellness-tea.jpg",
+      "featured": true,
+      "price": 1900,
+      "currency": "USD",
+      "sku": "DB-TEA-002",
+      "inStock": true,
+      "variants": [
+        { "size": "Loose Leaf Pouch, 2oz", "price": 1900, "sku": "DB-TEA-002-2OZ" },
+        { "size": "15 Sachets", "price": 1700, "sku": "DB-TEA-002-15CT" }
+      ]
+    },
+    {
+      "id": "tea-sleep-serenity",
+      "handle": "sleep-serenity-tea",
+      "title": "Sleep & Serenity Tea",
+      "category": "teas",
+      "blendType": "Sleep Blend",
+      "ingredients": "Chamomile, lemon balm, lavender, spearmint",
+      "description": "A calming evening herbal blend created for peaceful nighttime rituals. With soft floral notes and refreshing mint, this tea is perfect for winding down and creating moments of tranquility before bed.",
+      "icon": "leaf-teacup",
+      "image": "sleep-serenity-tea.jpg",
+      "featured": true,
+      "price": 1900,
+      "currency": "USD",
+      "sku": "DB-TEA-003",
+      "inStock": true,
+      "variants": [
+        { "size": "Loose Leaf Pouch, 2oz", "price": 1900, "sku": "DB-TEA-003-2OZ" },
+        { "size": "15 Sachets", "price": 1700, "sku": "DB-TEA-003-15CT" }
+      ]
+    }
+  ]
+}

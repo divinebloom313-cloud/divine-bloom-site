@@ -3,7 +3,7 @@
     {
       "id": "tea-signature-blend",
       "handle": "divine-bloom-signature-tea",
-      "title": "Divine Bloom™ Signature Tea",
+      "title": "Divine Bloom\u2122 Signature Tea",
       "category": "teas",
       "blendType": "Signature Blend",
       "ingredients": "Lemon balm, peppermint, rose petals, jasmine flowers",
@@ -16,8 +16,16 @@
       "sku": "DB-TEA-001",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-001-2OZ" },
-        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-001-15CT" }
+        {
+          "size": "Loose Leaf Pouch, 2oz",
+          "price": 1699,
+          "sku": "DB-TEA-001-2OZ"
+        },
+        {
+          "size": "15 Sachets",
+          "price": 1800,
+          "sku": "DB-TEA-001-15CT"
+        }
       ]
     },
     {
@@ -36,8 +44,16 @@
       "sku": "DB-TEA-002",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-002-2OZ" },
-        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-002-15CT" }
+        {
+          "size": "Loose Leaf Pouch, 2oz",
+          "price": 1699,
+          "sku": "DB-TEA-002-2OZ"
+        },
+        {
+          "size": "15 Sachets",
+          "price": 1700,
+          "sku": "DB-TEA-002-15CT"
+        }
       ]
     },
     {
@@ -56,8 +72,16 @@
       "sku": "DB-TEA-003",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-003-2OZ" },
-        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-003-15CT" }
+        {
+          "size": "Loose Leaf Pouch, 2oz",
+          "price": 1699,
+          "sku": "DB-TEA-003-2OZ"
+        },
+        {
+          "size": "15 Sachets",
+          "price": 1700,
+          "sku": "DB-TEA-003-15CT"
+        }
       ]
     }
   ]

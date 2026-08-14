@@ -56,6 +56,12 @@ async function handleCreateCheckoutSession(request, env) {
     params.append("shipping_address_collection[allowed_countries][]", "US");
     params.append("phone_number_collection[enabled]", "true");
 
+    // Flat-rate shipping: $7.99 on every order.
+    params.append("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
+    params.append("shipping_options[0][shipping_rate_data][fixed_amount][amount]", "799");
+    params.append("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "usd");
+    params.append("shipping_options[0][shipping_rate_data][display_name]", "Standard Shipping");
+
     safeItems.forEach((item, i) => {
       params.append(`line_items[${i}][price_data][currency]`, "usd");
       params.append(`line_items[${i}][price_data][product_data][name]`, item.title.slice(0, 120));

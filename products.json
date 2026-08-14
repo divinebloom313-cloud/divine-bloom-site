@@ -11,13 +11,13 @@
       "icon": "leaf-teacup",
       "image": "signature-tea.jpg",
       "featured": true,
-      "price": 2000,
+      "price": 1699,
       "currency": "USD",
       "sku": "DB-TEA-001",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 2000, "sku": "DB-TEA-001-2OZ" },
-        { "size": "15 Sachets", "price": 1800, "sku": "DB-TEA-001-15CT" }
+        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-001-2OZ" },
+        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-001-15CT" }
       ]
     },
     {
@@ -31,13 +31,13 @@
       "icon": "leaf-teacup",
       "image": "womens-wellness-tea.jpg",
       "featured": true,
-      "price": 1900,
+      "price": 1699,
       "currency": "USD",
       "sku": "DB-TEA-002",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 1900, "sku": "DB-TEA-002-2OZ" },
-        { "size": "15 Sachets", "price": 1700, "sku": "DB-TEA-002-15CT" }
+        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-002-2OZ" },
+        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-002-15CT" }
       ]
     },
     {
@@ -51,13 +51,13 @@
       "icon": "leaf-teacup",
       "image": "sleep-serenity-tea.jpg",
       "featured": true,
-      "price": 1900,
+      "price": 1699,
       "currency": "USD",
       "sku": "DB-TEA-003",
       "inStock": true,
       "variants": [
-        { "size": "Loose Leaf Pouch, 2oz", "price": 1900, "sku": "DB-TEA-003-2OZ" },
-        { "size": "15 Sachets", "price": 1700, "sku": "DB-TEA-003-15CT" }
+        { "size": "Loose Leaf Pouch, 2oz", "price": 1699, "sku": "DB-TEA-003-2OZ" },
+        { "size": "15 Sachets", "price": 1699, "sku": "DB-TEA-003-15CT" }
       ]
     }
   ]

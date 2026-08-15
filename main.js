@@ -97,9 +97,34 @@ function initSprigs() {
 
 /* ---- Product card markup ---- */
 function productCard(product) {
-  const media = product.image
-    ? `<div class="product-media teas has-photo"><span class="tag">${product.blendType}</span><img src="${product.image}" alt="${product.title} packaging" loading="lazy"></div>`
-    : `<div class="product-media teas"><span class="tag">${product.blendType}</span>${ICONS["leaf-teacup"]}</div>`;
+  const images = Array.isArray(product.images) && product.images.length
+    ? product.images
+    : (product.image ? [product.image] : []);
+
+  let media;
+  if (images.length > 1) {
+    const slides = images
+      .map((src) => `<div class="gallery-slide"><img src="${src}" alt="${product.title} photo" loading="lazy"></div>`)
+      .join("");
+    const dots = images
+      .map((_, i) => `<button class="gallery-dot${i === 0 ? " is-active" : ""}" type="button" data-gallery-dot="${i}" aria-label="Photo ${i + 1}"></button>`)
+      .join("");
+    media = `
+      <div class="product-media teas has-photo">
+        <span class="tag">${product.blendType}</span>
+        <div class="gallery" data-gallery>
+          <div class="gallery-track" data-gallery-track>${slides}</div>
+          <button class="gallery-arrow gallery-prev" type="button" data-gallery-prev aria-label="Previous photo">&#8249;</button>
+          <button class="gallery-arrow gallery-next" type="button" data-gallery-next aria-label="Next photo">&#8250;</button>
+          <div class="gallery-dots" data-gallery-dots>${dots}</div>
+        </div>
+      </div>`;
+  } else if (images.length === 1) {
+    media = `<div class="product-media teas has-photo"><span class="tag">${product.blendType}</span><img src="${images[0]}" alt="${product.title} packaging" loading="lazy"></div>`;
+  } else {
+    media = `<div class="product-media teas"><span class="tag">${product.blendType}</span>${ICONS["leaf-teacup"]}</div>`;
+  }
+
   return `
     <article class="product-card reveal">
       ${media}
@@ -113,6 +138,70 @@ function productCard(product) {
         </div>
       </div>
     </article>`;
+}
+
+/* ---- Product image gallery: swipe (native scroll) + arrow buttons + dots ---- */
+function initGalleries() {
+  document.querySelectorAll("[data-gallery]").forEach((gallery) => {
+    if (gallery.dataset.galleryInit) return; // avoid double-binding on re-render
+    gallery.dataset.galleryInit = "true";
+
+    const track = gallery.querySelector("[data-gallery-track]");
+    const slides = Array.from(track.children);
+    const dots = Array.from(gallery.querySelectorAll("[data-gallery-dot]"));
+    const prevBtn = gallery.querySelector("[data-gallery-prev]");
+    const nextBtn = gallery.querySelector("[data-gallery-next]");
+
+    const goTo = (index) => {
+      const clamped = Math.max(0, Math.min(index, slides.length - 1));
+      slides[clamped].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    };
+
+    const setActiveDot = (index) => {
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    };
+
+    let current = 0;
+
+    prevBtn.addEventListener("click", () => {
+      current = Math.max(0, current - 1);
+      goTo(current);
+      setActiveDot(current);
+    });
+    nextBtn.addEventListener("click", () => {
+      current = Math.min(slides.length - 1, current + 1);
+      goTo(current);
+      setActiveDot(current);
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        current = i;
+        goTo(current);
+        setActiveDot(current);
+      });
+    });
+
+    // Keep dots in sync when the user swipes manually on mobile
+    let scrollTimeout;
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const trackRect = track.getBoundingClientRect();
+        let closest = 0;
+        let closestDist = Infinity;
+        slides.forEach((slide, i) => {
+          const rect = slide.getBoundingClientRect();
+          const dist = Math.abs(rect.left - trackRect.left);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = i;
+          }
+        });
+        current = closest;
+        setActiveDot(current);
+      }, 100);
+    });
+  });
 }
 
 /* ---- Load + render products ---- */
@@ -133,6 +222,7 @@ async function renderFeatured() {
     const data = await loadProducts();
     teaTarget.innerHTML = data.teas.filter((p) => p.featured).map(productCard).join("");
     initReveal();
+    initGalleries();
   } catch (err) {
     console.error(err);
   }
@@ -149,6 +239,7 @@ async function renderShop(category) {
         ? list.map(productCard).join("")
         : `<p style="color:var(--ink-soft)">No blends match that filter yet — more are on the way.</p>`;
       initReveal();
+      initGalleries();
     };
     render(items);
 

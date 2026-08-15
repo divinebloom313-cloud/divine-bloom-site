@@ -3,7 +3,7 @@
     {
       "id": "tea-signature-blend",
       "handle": "divine-bloom-signature-tea",
-      "title": "Divine Bloom™ Signature Tea",
+      "title": "Divine Bloom\u2122 Signature Tea",
       "category": "teas",
       "blendType": "Signature Blend",
       "ingredients": "Lemon balm, peppermint, rose petals, jasmine flowers",
@@ -29,6 +29,7 @@
       ],
       "images": [
         "signature-tea.jpg",
+        "signature-tea-cup.jpg",
         "signature-tea-ingredients.jpg"
       ]
     },
@@ -61,6 +62,7 @@
       ],
       "images": [
         "womens-wellness-tea.jpg",
+        "womens-wellness-tea-cup.jpg",
         "womens-wellness-tea-ingredients.jpg"
       ]
     },
@@ -93,6 +95,7 @@
       ],
       "images": [
         "sleep-serenity-tea.jpg",
+        "sleep-serenity-tea-cup.jpg",
         "sleep-serenity-tea-ingredients.jpg"
       ]
     }

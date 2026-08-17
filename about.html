@@ -10,6 +10,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2581095');
+</script>
+<!-- End MailerLite Universal -->
 </head>
 <body>
 
@@ -98,12 +107,58 @@
           <span class="eyebrow">Stay Connected</span>
           <h2>Wellness tips, new blends, and quiet moments — in your inbox</h2>
           <p>Join our list for early access to new blends, seasonal wellness rituals, and subscriber-only offers.</p>
-          <form class="newsletter-form" data-newsletter-form>
-            <input type="email" required placeholder="Enter your email address" aria-label="Email address">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-          <p class="newsletter-success" role="status"></p>
-          <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
+          <div id="mlb2-44925403" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-44925403">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2581095/forms/196073818054199283/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Enter your email address" autocomplete="email">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ml-form-embedPermissions" style="">
+                      <div class="ml-form-embedPermissionsContent default privacy-policy">
+                        <p style="font-size:0.78rem; color:var(--ink-soft, #666); margin:0 0 0.9rem 0;">You can unsubscribe anytime. For more details, review our <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy Policy</a>.</p>
+                      </div>
+                    </div>
+                    <div class="ml-form-recaptcha ml-validate-required" style="float: left;">
+                      <script src="https://www.google.com/recaptcha/api.js"></script>
+                      <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="btn btn-primary primary">Subscribe</button>
+                      <button disabled="disabled" style="display: none;" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display: none">
+                  <div class="ml-form-successContent">
+                    <h4>Thank you!</h4>
+                    <p>You have successfully joined our subscriber list.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            function ml_webform_success_44925403() {
+              var $ = ml_jQuery || jQuery;
+              $('.ml-subscribe-form-44925403 .row-success').show();
+              $('.ml-subscribe-form-44925403 .row-form').hide();
+            }
+          </script>
+          <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+          <script>
+            fetch("https://assets.mailerlite.com/jsonp/2581095/forms/196073818054199283/takel")
+          </script>
         </div>
       </div>
     </div>

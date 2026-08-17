@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>.form-success{display:none;margin-top:0.9rem;font-size:0.9rem;font-weight:700;color:var(--sage-deep);}.form-success.show{display:block;}</style>
+<style>.form-success{display:none;margin-top:0.9rem;font-size:0.9rem;font-weight:700;color:var(--sage-deep);}.form-success.show{display:block;}.form-error{display:none;margin-top:0.9rem;font-size:0.9rem;font-weight:700;color:#b3261e;}.form-error.show{display:block;}</style>
 </head>
 <body>
 
@@ -48,7 +48,7 @@
 
   <section class="section" style="padding-top:0;">
     <div class="wrap contact-grid">
-      <form class="contact-form reveal" data-contact-form>
+      <form class="contact-form reveal" data-contact-form action="https://formspree.io/f/mrpzydbz" method="POST">
         <div class="field">
           <label for="name">Full Name</label>
           <input id="name" name="name" type="text" required placeholder="Your name">
@@ -67,6 +67,7 @@
         </div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
         <p class="form-success" role="status">Thank you — your message has been received. We'll be in touch soon.</p>
+        <p class="form-error" role="alert">Something went wrong sending your message. Please try again, or email us directly at divinebloom313@gmail.com.</p>
       </form>
 
       <div class="contact-info-card reveal">

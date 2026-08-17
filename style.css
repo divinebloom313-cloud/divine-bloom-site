@@ -842,6 +842,13 @@ textarea:focus-visible {
   place-items: center;
 }
 .about-visual svg { width: 55%; color: var(--sage-deep); }
+.about-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-organic);
+  display: block;
+}
 
 .about-copy p { margin-top: 1rem; color: var(--ink-soft); font-size: 1.02rem; }
 .about-copy p:first-of-type { margin-top: 1.4rem; }

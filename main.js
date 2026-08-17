@@ -283,8 +283,31 @@ function initContactForm() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const success = form.querySelector(".form-success");
-    if (success) success.classList.add("show");
-    form.reset();
+    const errorEl = form.querySelector(".form-error");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (success) success.classList.remove("show");
+    if (errorEl) errorEl.classList.remove("show");
+    if (submitBtn) submitBtn.disabled = true;
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          if (success) success.classList.add("show");
+          form.reset();
+        } else {
+          if (errorEl) errorEl.classList.add("show");
+        }
+      })
+      .catch(() => {
+        if (errorEl) errorEl.classList.add("show");
+      })
+      .finally(() => {
+        if (submitBtn) submitBtn.disabled = false;
+      });
   });
 }
 
